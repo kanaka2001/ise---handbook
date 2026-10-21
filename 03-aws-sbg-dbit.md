@@ -42,18 +42,57 @@ We connect DBIT students with the wider AWS builder community through meetups, L
 
 ---
 
-## 3.3 AfterHours — Community Meetups
+## 3.3 AfterHours 1.0 — Hackathon
 
-**AfterHours** is our informal community meetup series — casual, low-pressure sessions where students:
-- Share what they built or learned recently
-- Demo side projects and experiments
-- Discuss new AWS releases and AI developments
-- Network with peers who are building on the cloud
+**AfterHours 1.0** is a premier solo cloud-innovation hackathon by AWS SBG DBIT, designed to empower AIML builders to rapidly prototype and pitch intelligent applications — all in a single day.
 
-No slides, no exams — just builders talking to builders.
+**Event page:** [awsevents.dbit.edu.in/afterhours-1.0](https://awsevents.dbit.edu.in/afterhours-1.0/)
 
-**Stay updated on AfterHours dates:**
-[Meetup — AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/)
+| Detail | Info |
+|---|---|
+| **Event** | AfterHours 1.0 — PartyRock Hack |
+| **Date** | 24 September 2026 |
+| **Venue** | SH001, DBIT Campus, Bengaluru |
+| **Format** | Individual · Offline · One Day |
+| **Registration** | ₹50 · Solo Entry |
+| **Organized by** | AWS SBG DBIT × Department of AI & ML |
+
+### What It Is
+
+Participants solve real-world industrial and campus challenges using **AWS PartyRock** — Amazon's no-code generative AI builder powered by Amazon Bedrock. No deep infrastructure setup needed; builders focus entirely on building AI-powered applications.
+
+Access is gated for AIML students via pre-whitelisted Gmail authentication.
+
+### The Three Rounds
+
+```
+Round 1 — Cloud Blitz ⛈️
+  30 MCQ/True-False questions on AWS and cloud
+  Live per-question countdown timers
+  Top 50% advance to Round 2
+        ↓
+Round 2 — BuildForge ⭐
+  Build a functional AI app using AWS PartyRock
+  Industrial problem statements and dataset challenges
+  Top 20 advance to Round 3
+        ↓
+Round 3 — Campus Innovator 🎓
+  Build a solution for a real campus-life problem
+  Live pitch and demo to an expert judging panel on-site
+  Podium winners decided here
+```
+
+### Prizes & Recognition
+
+| Position | Prize |
+|---|---|
+| 🥇 First Place | Special prize + Certificate of Merit |
+| 🥈 First Runner-up | Special prize + Certificate of Merit |
+| 🥉 Second Runner-up | Special prize + Certificate of Merit |
+| Top 20 Finalists | Certificate of Merit |
+| All Participants | Certificate of Participation |
+
+**Register:** [awsevents.dbit.edu.in/departments/aiml](https://awsevents.dbit.edu.in/departments/aiml)
 
 ---
 

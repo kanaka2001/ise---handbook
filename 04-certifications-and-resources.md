@@ -123,7 +123,13 @@ DevOps Engineer – Professional (DOP-C02)
 
 **AWS Builder Center** is your most important resource as a student. Sign up, verify your student status, and earn community badges to unlock a free Foundational exam voucher worth $100.
 
-**Sign-up link:** [bit.ly/450cFtS](https://bit.ly/450cFtS)
+<p align="center">
+  <a href="https://bit.ly/450cFtS">
+    <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/qr-builder-center.png" width="200" alt="AWS Builder Center QR Code"/>
+  </a>
+  <br/>
+  <strong>Scan to sign up → <a href="https://bit.ly/450cFtS">bit.ly/450cFtS</a></strong>
+</p>
 
 | Step | Action | Reward |
 |---|---|---|
