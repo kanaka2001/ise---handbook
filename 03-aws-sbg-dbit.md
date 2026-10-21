@@ -1,369 +1,137 @@
-# Chapter 3: AWS SBG (dbit) — Sandbox & Training Environment
-
----
-
-## 3.1 Overview
-
-The **AWS SBG (Sandbox/Training Environment)** — referred to internally as **dbit** — is a governed, isolated AWS environment designed to provide hands-on learning and experimentation without risk to production systems or unexpected billing surprises.
-
-This chapter covers how the sandbox environment works, how to access and use it effectively, what you can and cannot do within it, and best practices for getting the most out of your sandbox time.
-
----
-
-## 3.2 What is a Sandbox Environment?
-
-A **sandbox** is a controlled AWS account (or account segment) that provides:
-
-- A **safe space** to experiment with AWS services
-- **Isolated boundaries** — no impact on production workloads
-- **Spend controls** — budget limits and automatic guardrails prevent runaway costs
-- **Pre-configured guardrails** — security policies, SCPs (Service Control Policies), and permission boundaries already in place
-- **Time-limited or recyclable** access — accounts may be reset or recycled after use
-
-> Think of the sandbox as a playground where you're free to build, break, and learn — with safety nets in place.
-
----
-
-## 3.3 Why Use the SBG (dbit) Environment?
-
-| Benefit | Description |
-|---|---|
-| **Risk-Free Learning** | Mistakes in sandbox don't affect real systems or customers |
-| **No Credit Card Needed** | Pre-provisioned accounts — no personal billing |
-| **Governed Access** | Permissions are pre-scoped for learning tasks |
-| **Team Consistency** | Everyone uses the same baseline environment |
-| **Quick Provisioning** | Access granted in minutes, not days |
-| **Hands-On Experience** | Real AWS services, not simulators |
-
----
-
-## 3.4 SBG Environment Architecture
-
-The sandbox environment is typically structured within **AWS Organizations**, which allows centralized governance across multiple accounts.
-
-```
-AWS Organizations (Management Account)
-└── Sandbox Organizational Unit (OU)
-    ├── dbit-sandbox-user-001   ← Individual or team sandbox account
-    ├── dbit-sandbox-user-002
-    ├── dbit-sandbox-team-A
-    └── dbit-sandbox-team-B
-```
-
-### Key Governance Components
-
-| Component | Role |
-|---|---|
-| **AWS Organizations** | Central management of all sandbox accounts |
-| **Service Control Policies (SCPs)** | Org-level guardrails that restrict certain actions (e.g., prevent creating resources in restricted regions) |
-| **IAM Permission Boundaries** | Limit the maximum permissions a user/role can have |
-| **AWS Budgets** | Auto-alert or terminate resources when spend limit is reached |
-| **AWS Config Rules** | Ensure resources comply with security/tagging standards |
-| **CloudTrail** | All activity logged for audit and review |
-
----
-
-## 3.5 Accessing Your Sandbox Account
-
-### 3.5.1 SSO / Federated Login
-
-Most sandbox environments use **AWS IAM Identity Center (SSO)** for access. You log in with your corporate credentials rather than a standalone AWS username/password.
-
-**Steps to access:**
-1. Navigate to your organization's **SSO portal URL** (provided by your admin)
-2. Sign in with your **corporate/dbit credentials**
-3. Select the sandbox account assigned to you from the portal
-4. Click **Management Console** to launch the AWS Console
-5. Or click **Access Keys** to get temporary CLI credentials
-
----
-
-### 3.5.2 Direct IAM Login (if SSO is not configured)
-
-If using a direct IAM user:
-1. Go to the **sign-in URL** provided by your admin (e.g., `https://<account-id>.signin.aws.amazon.com/console`)
-2. Enter your **IAM username and password**
-3. Complete MFA if required
-
-> The IAM Dashboard in your AWS Console shows your account-specific sign-in URL on the right side.
+# Chapter 3: AWS Student Builder Group — DBIT
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/iam-dashboard.png" width="720" alt="IAM Dashboard"/>
-  <br/>
-  <em>IAM Dashboard — shows security recommendations, IAM resources, and the account sign-in URL</em>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" width="120" alt="AWS Logo"/>
 </p>
 
 ---
 
-### 3.5.3 AWS CLI Access in Sandbox
+## 3.1 What is AWS Student Builder Group?
 
-After obtaining temporary credentials from SSO:
+**AWS Student Builder Group (SBG)** is an official student community program by Amazon Web Services. SBG chapters operate at colleges and universities across India, giving students a structured path to learn cloud computing, build real projects, and connect with the broader AWS community.
 
-```bash
-# Configure AWS CLI with temporary credentials
-aws configure --profile sandbox
-# Enter: Access Key ID, Secret Access Key, Session Token, Region
-
-# Verify access
-aws sts get-caller-identity --profile sandbox
-
-# Set as default for your session
-export AWS_PROFILE=sandbox
-```
-
----
-
-## 3.6 What You Can Do in the Sandbox
-
-The sandbox environment is designed to support a broad range of learning activities:
-
-### ✅ Typical Sandbox Capabilities
-
-| Service Category | Allowed Activities |
-|---|---|
-| **Compute (EC2)** | Launch instances (limited sizes — t2.micro, t3.micro), create AMIs, set up Auto Scaling |
-| **Serverless (Lambda)** | Create and invoke functions, set up triggers, use layers |
-| **Storage (S3)** | Create buckets, upload/download objects, configure policies |
-| **Networking (VPC)** | Create VPCs, subnets, security groups, route tables |
-| **Database (RDS/DynamoDB)** | Launch small DB instances, create tables, run queries |
-| **IAM** | Create roles, policies (within permission boundaries) |
-| **CloudFormation** | Deploy IaC templates, manage stacks |
-| **CloudWatch** | Set up dashboards, alarms, and log groups |
-| **API Gateway** | Create and deploy REST/HTTP APIs |
-| **SNS / SQS** | Create topics, queues, and subscriptions |
-
----
-
-## 3.7 Sandbox Restrictions and Guardrails
-
-To protect costs and security, certain actions are restricted in the sandbox:
-
-### ❌ Common Restrictions
-
-| Restriction | Reason |
-|---|---|
-| Large EC2 instance types (e.g., m5.4xlarge, c5.9xlarge) | Cost control |
-| Resources in restricted/non-approved Regions | Governance and data residency |
-| Production-grade RDS Multi-AZ deployments | Cost control |
-| Creating new IAM users (only roles allowed) | Security governance |
-| Modifying CloudTrail or Config settings | Audit integrity |
-| Disabling security services (GuardDuty, Security Hub) | Security compliance |
-| Exceeding the monthly spend budget | Automatic enforcement |
-
-> **Note:** Attempting a restricted action will return an `Access Denied` or `This action is not permitted by an SCP` error. This is expected — it doesn't mean your credentials are broken.
-
----
-
-## 3.8 Sandbox Spend Controls
-
-### Budget Limits
-Every sandbox account has a **monthly budget cap** (e.g., $50–$200 depending on your organization's policy).
-
-- At **80% of budget**: You receive an email alert
-- At **100% of budget**: Another alert is sent; resources may be automatically stopped
-- **Account recycling**: When a sandbox lease expires, the account is wiped and re-provisioned for the next user
-
-### Cost-Conscious Habits for Sandbox
-
-Follow these habits to avoid hitting your budget limit:
-
-```
-Daily Hygiene Checklist:
-[ ] Stop EC2 instances when not in use (don't terminate — just stop)
-[ ] Delete unused RDS instances (they charge even when idle)
-[ ] Remove unused Elastic IPs (charged when not attached)
-[ ] Clean up old EBS snapshots
-[ ] Empty and delete unused S3 buckets
-[ ] Delete API Gateways and Lambda functions no longer needed
-[ ] Check your spend in Billing Console at least weekly
-```
-
----
-
-## 3.9 Common Sandbox Use Cases & Labs
-
-### Lab 1 — Host a Static Website on S3
-**Goal:** Deploy a static HTML/CSS website using S3 static website hosting  
-**Services:** S3, Route 53 (optional), CloudFront (optional)  
-**Estimated Cost:** < $0.01
-
-**Quick steps:**
-1. Create an S3 bucket with a globally unique name
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-buckets-list-empty.png" width="720" alt="S3 Buckets list empty"/>
-  <br/>
-  <em>S3 console — empty bucket list is the correct starting state</em>
-</p>
-
-2. Enable **Static website hosting** in bucket properties
-3. Upload your `index.html` and assets
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-create-bucket-config.png" width="720" alt="S3 Create bucket configuration"/>
-  <br/>
-  <em>Create bucket — enter a globally unique name and select Mumbai (ap-south-1)</em>
-</p>
-
-4. Set bucket policy to allow public read access
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-create-bucket-public-access.png" width="720" alt="S3 unblock public access"/>
-  <br/>
-  <em>Uncheck "Block all public access" — required for static website hosting</em>
-</p>
-
-5. Access via the S3 website endpoint URL
-
----
-
-### Lab 2 — Launch and Connect to an EC2 Instance
-**Goal:** Launch a Linux EC2 instance and connect via SSH  
-**Services:** EC2, VPC, Security Groups  
-**Estimated Cost:** Free Tier eligible (t2.micro)
-
-**Quick steps:**
-1. Launch a t2.micro Ubuntu instance
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-dashboard.png" width="720" alt="EC2 Dashboard"/>
-  <br/>
-  <em>EC2 Dashboard — click "Launch instance" to start</em>
-</p>
-
-2. Select Ubuntu AMI and t2.micro instance type
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-launch-ami-selection.png" width="720" alt="EC2 AMI selection"/>
-  <br/>
-  <em>Select Ubuntu Server 22.04 LTS and t2.micro (Free Tier eligible)</em>
-</p>
-
-3. Create or select a key pair — download the `.pem` file
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-launch-keypair-network.png" width="720" alt="EC2 key pair and network settings"/>
-  <br/>
-  <em>Create a key pair and allow SSH + HTTP traffic from the network settings</em>
-</p>
-
-4. Configure Security Group: allow SSH (port 22) from your IP and HTTP from the internet
-5. Connect: `ssh -i your-key.pem ubuntu@<public-ip>`
-
----
-
-### Lab 3 — Create a Serverless API
-**Goal:** Build a REST API backed by Lambda and API Gateway  
-**Services:** Lambda, API Gateway, IAM  
-**Estimated Cost:** Free Tier eligible
-
-**Quick steps:**
-1. Create a Lambda function (Python/Node.js) that returns JSON
-2. Create an API Gateway REST API
-3. Create a GET method integrated with your Lambda
-4. Deploy the API and test with `curl` or a browser
-
----
-
-### Lab 4 — Store and Query Data with DynamoDB
-**Goal:** Create a DynamoDB table, insert items, and run queries  
-**Services:** DynamoDB, IAM  
-**Estimated Cost:** Free Tier eligible
-
-**Quick steps:**
-1. Create a DynamoDB table with a partition key
-2. Insert a few items via the console
-3. Run a **Scan** and a **Query** using the console
-4. Try AWS CLI: `aws dynamodb scan --table-name <table-name>`
-
----
-
-### Lab 5 — Build a VPC from Scratch
-**Goal:** Create a custom VPC with public and private subnets  
-**Services:** VPC, Subnets, Internet Gateway, NAT Gateway, Route Tables  
-**Estimated Cost:** Small charge for NAT Gateway (~$0.045/hr)
-
-**Quick steps:**
-1. Create VPC with CIDR `10.0.0.0/16`
-2. Create public subnet `10.0.1.0/24` and private subnet `10.0.2.0/24`
-3. Attach Internet Gateway to VPC
-4. Update public subnet route table to route `0.0.0.0/0` → IGW
-5. Launch EC2 in public subnet and verify internet access
-
----
-
-## 3.10 Sandbox Troubleshooting
-
-| Issue | Likely Cause | Solution |
-|---|---|---|
-| `Access Denied` on resource creation | SCP restriction or insufficient IAM permissions | Check error message — if SCP, contact admin; if IAM, check your role's policies |
-| Resources not visible | Wrong region selected | Check the region selector in the top-right corner |
-| EC2 connection refused | Security group not configured | Add inbound rule for SSH (22) or RDP (3389) from your IP |
-| Budget alert received | Approaching spend limit | Review Billing Console, stop/delete unused resources |
-| Sandbox account expired | Lease period ended | Request a new sandbox account from your admin |
-| CLI credentials expired | Temporary SSO credentials expire (typically 1–8 hours) | Re-authenticate via SSO portal to get fresh credentials |
-
----
-
-## 3.11 Sandbox Best Practices
-
-1. **Tag all resources** — use consistent tags like `Owner`, `Project`, `Environment=sandbox` to track what you created
-2. **Use CloudFormation or Terraform** — deploy infrastructure as code so you can tear down and rebuild reproducibly
-3. **Document your experiments** — keep notes on what you built, what worked, what didn't
-4. **Clean up after each session** — delete resources you no longer need
-5. **Don't store sensitive data** — sandbox accounts are shared/recycled; never put real credentials, PII, or proprietary data in them
-6. **Use the sandbox to practice certification topics** — it's the best complement to any AWS course or study guide
-
----
-
-## 3.12 Getting Help in the Sandbox Environment
-
-| Resource | How to Access |
-|---|---|
-| **AWS Documentation** | [docs.aws.amazon.com](https://docs.aws.amazon.com) |
-| **AWS Console Help** | Click the **?** icon in any service console |
-| **Internal Slack/Teams Channel** | `#aws-sandbox` or `#dbit-cloud` (as configured by your team) |
-| **Admin/IT Support** | Raise a ticket for account issues, permission errors, or budget questions |
-| **AWS re:Post** | [repost.aws](https://repost.aws) — community Q&A |
-
----
-
-## 3.13 AWS SBG DBIT — Community & Events
-
-**AWS Student Builder Group (SBG) at DBIT** is a student-driven cloud community at Don Bosco Institute of Technology, running in collaboration with the Department of AI & ML.
+The **AWS SBG at Don Bosco Institute of Technology (DBIT), Bengaluru** runs in collaboration with the **Department of AI & ML**. It is a student-driven cloud community — led by students, for students.
 
 **What the community does:**
-- Organises hands-on workshops and technical events (like the AWS Builders Lab)
+- Organises hands-on cloud workshops and technical events
 - Connects students with AWS learning resources and career opportunities
 - Creates peer learning through collaboration and community building
 - Helps students build real skills for internships and placements
 
-### Stay Connected
+---
 
-| Platform | Link | Purpose |
-|---|---|---|
-| 📢 **WhatsApp Channel** | [Join Here](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) | Workshop updates and lab resources |
-| 📸 **Instagram** | [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) | Event highlights and tips |
-| 💼 **LinkedIn** | [AWS SBG DBIT](https://www.linkedin.com/company/aws-sbg-dbit/) | Professional community and career posts |
-| 🤝 **Meetup** | [AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/) | Upcoming events calendar |
-| 🌐 **Official Website** | [awsevents.dbit.edu.in](https://awsevents.dbit.edu.in/) | Events and registration |
+## 3.2 What We Do
 
-### Feedback — Help Improve Future Workshops
+The club runs four types of activities throughout the year:
 
-After attending any workshop, please fill in both feedback forms:
+### Workshops & Hands-On Labs
+Beginner-friendly, instructor-led sessions where students go from zero cloud experience to building and deploying real applications on AWS. Sessions have covered:
+- IAM, S3, EC2 — core AWS services
+- Amazon Bedrock and Generative AI
+- SageMaker Canvas for no-code machine learning
+- Deploying web applications on EC2
 
-| Form | Link |
-|---|---|
-| **Official AWS Event Feedback** | [pulse.amazon/survey/UPCU4UQO](https://pulse.amazon/survey/UPCU4UQO?p=0) |
-| **AWS SBG–DBIT Internal Feedback** | [forms.gle/7PzATmjkJSRV6gm16](https://forms.gle/7PzATmjkJSRV6gm16) |
+### Hackathons & Competitions
+Events that challenge students to apply cloud and AI skills under time pressure. Our signature event is **PartyRock Hack** — a three-round individual competition using AWS PartyRock to build AI-powered applications.
 
-### Join the Team
+### Certification Guidance
+The club helps students navigate the AWS certification path — from Cloud Practitioner to AI Practitioner. We share free exam voucher opportunities, study resources, and preparation tips through our community channels.
 
-Want to help organise events and build the cloud community at DBIT? Fill in the interest form and the team will reach out:
-
-**[forms.gle/TcuVTVdGg3TEJwU5A](https://forms.gle/TcuVTVdGg3TEJwU5A)**
+### Community Building
+We connect DBIT students with the wider AWS builder community through meetups, LinkedIn, and AWS Builder Center — opening doors to internships, projects, and career opportunities in cloud.
 
 ---
 
-*Previous: [Chapter 2 — AWS & Cloud Basics](./02-aws-and-cloud-basics.md)*  
-*Next: [Chapter 4 — About Certifications and Resources](./04-certifications-and-resources.md)*
+## 3.3 Our Flagship Event — AWS Builders Lab
+
+**AWS Builders Lab** is our signature two-day hands-on workshop, part of **HexaVerse CloudFest**.
+
+| | Day 1 | Day 2 |
+|---|---|---|
+| **Focus** | Cloud Fundamentals & Core Services | MLOps & Generative AI |
+| **What you build** | IAM user, S3 static website, EC2 app, Bedrock exploration | SageMaker Canvas ML model, PartyRock AI app |
+
+Participants go from zero cloud experience to deploying real applications on AWS — in two days.
+
+---
+
+## 3.4 PartyRock Hack — Signature Hackathon
+
+**PartyRock Hack** is an individual offline competition held on the DBIT campus.
+
+| Detail | Info |
+|---|---|
+| **Format** | Individual · Offline · 3 Rounds |
+| **Venue** | DBIT Campus, Bengaluru |
+| **Registration** | ₹50 · Solo Entry |
+
+### The Three Rounds
+
+```
+Round 1 — Cloud Blitz
+  AWS and cloud knowledge quiz
+  Live questions with per-question countdown timers
+        ↓
+Round 2 — BuildForge
+  Build a working AI app using AWS PartyRock
+  Industrial problem statements and dataset challenges
+        ↓
+Round 3 — Campus Innovator
+  Solve a real campus-life problem using AI
+  Live pitch to an expert judging panel
+```
+
+Solutions are judged on **functionality, usability, innovation, and practical value**.
+
+**Register:** [awsevents.dbit.edu.in/departments/aiml](https://awsevents.dbit.edu.in/departments/aiml)
+
+---
+
+## 3.5 AfterHours — Community Meetups
+
+**AfterHours** is our informal community meetup series — casual, low-pressure sessions where students:
+- Share what they built or learned recently
+- Demo side projects and experiments
+- Discuss new AWS releases and AI developments
+- Network with peers who are building on the cloud
+
+No slides, no exams — just builders talking to builders.
+
+**Stay updated on AfterHours dates:**
+[Meetup — AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/)
+
+---
+
+## 3.6 Join the Team
+
+AWS SBG DBIT is always looking for motivated students who want to build, learn, and lead in the cloud and AI space.
+
+**What being a core team member involves:**
+- Organising and running workshops and events
+- Creating technical content and learning resources
+- Representing DBIT in the AWS student community
+- Building your own cloud and leadership skills
+
+**Fill the interest form to apply:**
+[forms.gle/TcuVTVdGg3TEJwU5A](https://forms.gle/TcuVTVdGg3TEJwU5A)
+
+---
+
+## 3.7 Connect With Us
+
+Stay updated on all events, resources, and certification opportunities:
+
+| Platform | Handle / Link |
+|---|---|
+| 📢 **WhatsApp Channel** | [Join the channel](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) |
+| 📸 **Instagram** | [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) |
+| 💼 **LinkedIn** | [AWS SBG DBIT](https://www.linkedin.com/company/aws-sbg-dbit/) |
+| 🤝 **Meetup** | [AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/) |
+| 📘 **Facebook** | [AWS SBG DBIT](https://www.facebook.com/awssbg.dbit) |
+| ✖️ **X (Twitter)** | [@awssbg_dbit](https://x.com/awssbg_dbit) |
+| 🌐 **Official Website** | [awsevents.dbit.edu.in](https://awsevents.dbit.edu.in/) |
+
+---
+
+*Previous: [Chapter 2 — AWS & Cloud Basics](./02-aws-and-cloud-basics.md)*
+*Next: [Chapter 4 — Certifications & Resources](./04-certifications-and-resources.md)*
