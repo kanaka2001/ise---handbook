@@ -42,57 +42,36 @@ We connect DBIT students with the wider AWS builder community through meetups, L
 
 ---
 
-## 3.3 AfterHours 1.0 — Hackathon
+## 3.3 AfterHours 1.0 — DBIT's Flagship 24-Hour Hackathon
 
-**AfterHours 1.0** is a premier solo cloud-innovation hackathon by AWS SBG DBIT, designed to empower AIML builders to rapidly prototype and pitch intelligent applications — all in a single day.
+**AfterHours 1.0** is DBIT's flagship inter-college hackathon — 24 hours of building, brainstorming, debugging, and competing with some of the smartest student developers around Bengaluru.
+
+> *Code Beyond the Clock. 24 Hours. One Hack. Zero Sleep.*
 
 **Event page:** [awsevents.dbit.edu.in/afterhours-1.0](https://awsevents.dbit.edu.in/afterhours-1.0/)
 
 | Detail | Info |
 |---|---|
-| **Event** | AfterHours 1.0 — PartyRock Hack |
-| **Date** | 24 September 2026 |
-| **Venue** | SH001, DBIT Campus, Bengaluru |
-| **Format** | Individual · Offline · One Day |
-| **Registration** | ₹50 · Solo Entry |
-| **Organized by** | AWS SBG DBIT × Department of AI & ML |
+| **Date** | 30–31 October 2026 |
+| **Duration** | 24 Hours |
+| **Venue** | Don Bosco Institute of Technology, Bengaluru |
+| **Team Size** | 2–4 Members |
+| **Registration Fee** | ₹1,000 per team |
+| **Prize Pool** | ₹35,000 |
+| **Open To** | B.E. / B.Tech / BCA students across all years |
+| **Organized by** | AWS SBG DBIT |
 
-### What It Is
+### Pre-Qualification Schedule
 
-Participants solve real-world industrial and campus challenges using **AWS PartyRock** — Amazon's no-code generative AI builder powered by Amazon Bedrock. No deep infrastructure setup needed; builders focus entirely on building AI-powered applications.
-
-Access is gated for AIML students via pre-whitelisted Gmail authentication.
-
-### The Three Rounds
-
-```
-Round 1 — Cloud Blitz ⛈️
-  30 MCQ/True-False questions on AWS and cloud
-  Live per-question countdown timers
-  Top 50% advance to Round 2
-        ↓
-Round 2 — BuildForge ⭐
-  Build a functional AI app using AWS PartyRock
-  Industrial problem statements and dataset challenges
-  Top 20 advance to Round 3
-        ↓
-Round 3 — Campus Innovator 🎓
-  Build a solution for a real campus-life problem
-  Live pitch and demo to an expert judging panel on-site
-  Podium winners decided here
-```
-
-### Prizes & Recognition
-
-| Position | Prize |
+| Date | Milestone |
 |---|---|
-| 🥇 First Place | Special prize + Certificate of Merit |
-| 🥈 First Runner-up | Special prize + Certificate of Merit |
-| 🥉 Second Runner-up | Special prize + Certificate of Merit |
-| Top 20 Finalists | Certificate of Merit |
-| All Participants | Certificate of Participation |
+| 21 October 2026 | Problem Statements Released |
+| 24 October 2026 (7:30 PM) | Last Date for Registration |
+| 25 October 2026 (5:00 PM) | Last Date for PPT Submission |
+| 27 October 2026 | Announcement of Qualified Teams |
+| 30–31 October 2026 | Main Hackathon — 24 Hours |
 
-**Register:** [awsevents.dbit.edu.in/departments/aiml](https://awsevents.dbit.edu.in/departments/aiml)
+**Register now — limited spots:** [awsevents.dbit.edu.in/afterhours-1.0](https://awsevents.dbit.edu.in/afterhours-1.0/)
 
 ---
 
