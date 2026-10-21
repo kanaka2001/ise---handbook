@@ -42,52 +42,7 @@ We connect DBIT students with the wider AWS builder community through meetups, L
 
 ---
 
-## 3.3 Our Flagship Event — AWS Builders Lab
-
-**AWS Builders Lab** is our signature two-day hands-on workshop, part of **HexaVerse CloudFest**.
-
-| | Day 1 | Day 2 |
-|---|---|---|
-| **Focus** | Cloud Fundamentals & Core Services | MLOps & Generative AI |
-| **What you build** | IAM user, S3 static website, EC2 app, Bedrock exploration | SageMaker Canvas ML model, PartyRock AI app |
-
-Participants go from zero cloud experience to deploying real applications on AWS — in two days.
-
----
-
-## 3.4 PartyRock Hack — Signature Hackathon
-
-**PartyRock Hack** is an individual offline competition held on the DBIT campus.
-
-| Detail | Info |
-|---|---|
-| **Format** | Individual · Offline · 3 Rounds |
-| **Venue** | DBIT Campus, Bengaluru |
-| **Registration** | ₹50 · Solo Entry |
-
-### The Three Rounds
-
-```
-Round 1 — Cloud Blitz
-  AWS and cloud knowledge quiz
-  Live questions with per-question countdown timers
-        ↓
-Round 2 — BuildForge
-  Build a working AI app using AWS PartyRock
-  Industrial problem statements and dataset challenges
-        ↓
-Round 3 — Campus Innovator
-  Solve a real campus-life problem using AI
-  Live pitch to an expert judging panel
-```
-
-Solutions are judged on **functionality, usability, innovation, and practical value**.
-
-**Register:** [awsevents.dbit.edu.in/departments/aiml](https://awsevents.dbit.edu.in/departments/aiml)
-
----
-
-## 3.5 AfterHours — Community Meetups
+## 3.3 AfterHours — Community Meetups
 
 **AfterHours** is our informal community meetup series — casual, low-pressure sessions where students:
 - Share what they built or learned recently
@@ -102,22 +57,7 @@ No slides, no exams — just builders talking to builders.
 
 ---
 
-## 3.6 Join the Team
-
-AWS SBG DBIT is always looking for motivated students who want to build, learn, and lead in the cloud and AI space.
-
-**What being a core team member involves:**
-- Organising and running workshops and events
-- Creating technical content and learning resources
-- Representing DBIT in the AWS student community
-- Building your own cloud and leadership skills
-
-**Fill the interest form to apply:**
-[forms.gle/TcuVTVdGg3TEJwU5A](https://forms.gle/TcuVTVdGg3TEJwU5A)
-
----
-
-## 3.7 Connect With Us
+## 3.4 Connect With Us
 
 Stay updated on all events, resources, and certification opportunities:
 
