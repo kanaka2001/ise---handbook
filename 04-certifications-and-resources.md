@@ -22,24 +22,25 @@ AWS organizes its certifications across **four levels** and **multiple domains**
 AWS Certification Levels
 │
 ├── FOUNDATIONAL (No experience required)
-│   └── AWS Certified Cloud Practitioner (CLF-C02)
+│   ├── AWS Certified Cloud Practitioner (CLF-C02)  ← Start here
+│   └── AWS Certified AI Practitioner (AIF-C01)     ← AIML students: take this next
 │
 ├── ASSOCIATE (6–12 months recommended experience)
 │   ├── Solutions Architect – Associate (SAA-C03)
 │   ├── Developer – Associate (DVA-C02)
-│   └── SysOps Administrator – Associate (SOA-C02)
+│   ├── SysOps Administrator – Associate (SOA-C02)
+│   └── ML Engineer – Associate (MLA-C01)
 │
 ├── PROFESSIONAL (2+ years recommended experience)
 │   ├── Solutions Architect – Professional (SAP-C02/C03)
-│   └── DevOps Engineer – Professional (DOP-C02)
+│   ├── DevOps Engineer – Professional (DOP-C02)
+│   └── Generative AI Developer – Professional (AIP-C01, NEW 2026)
 │
 └── SPECIALTY (Deep domain expertise)
     ├── Advanced Networking
     ├── Security
     ├── Database
-    ├── Data Engineer – Associate
-    ├── Machine Learning Engineer – Associate
-    └── Generative AI Developer – Professional (NEW 2026)
+    └── Data Engineer – Associate
 ```
 
 ---
@@ -69,7 +70,32 @@ AWS Certification Levels
 
 ---
 
-### 4.3.2 AWS Certified Solutions Architect – Associate (SAA-C03)
+### 4.3.2 AWS Certified AI Practitioner (AIF-C01)
+
+| Attribute | Details |
+|---|---|
+| **Level** | Foundational |
+| **Prerequisites** | None |
+| **Exam Duration** | 90 minutes |
+| **Questions** | 65 |
+| **Passing Score** | 700 / 1000 |
+| **Cost** | $100 USD |
+| **Validity** | 3 years |
+
+**What it covers:**
+- Fundamentals of AI, ML, and Generative AI concepts
+- AWS AI/ML services: SageMaker, Bedrock, Rekognition, Comprehend, Transcribe
+- Responsible AI practices and governance
+- How to evaluate and select foundation models
+- Prompt engineering basics and generative AI use cases
+
+**Best for:** AIML students, data science learners, anyone working with AI/ML on AWS. **Recommended as the second cert for AIML students** after Cloud Practitioner.
+
+> **Free exam voucher tip:** Sign up on [AWS Builder Center](https://bit.ly/450cFtS), verify your student status, earn 21 community badges, and unlock a free Foundational exam voucher — redeemable for CLF-C02 or AIF-C01.
+
+---
+
+### 4.3.3 AWS Certified Solutions Architect – Associate (SAA-C03)
 
 | Attribute | Details |
 |---|---|
@@ -92,7 +118,7 @@ AWS Certification Levels
 
 ---
 
-### 4.3.3 AWS Certified Developer – Associate (DVA-C02)
+### 4.3.4 AWS Certified Developer – Associate (DVA-C02)
 
 | Attribute | Details |
 |---|---|
@@ -116,7 +142,7 @@ AWS Certification Levels
 
 ---
 
-### 4.3.4 AWS Certified SysOps Administrator – Associate (SOA-C02)
+### 4.3.5 AWS Certified SysOps Administrator – Associate (SOA-C02)
 
 | Attribute | Details |
 |---|---|
@@ -139,7 +165,7 @@ AWS Certification Levels
 
 ---
 
-### 4.3.5 AWS Certified Solutions Architect – Professional (SAP-C02/C03)
+### 4.3.6 AWS Certified Solutions Architect – Professional (SAP-C02/C03)
 
 | Attribute | Details |
 |---|---|
@@ -162,7 +188,7 @@ AWS Certification Levels
 
 ---
 
-### 4.3.6 AWS Certified DevOps Engineer – Professional (DOP-C02)
+### 4.3.7 AWS Certified DevOps Engineer – Professional (DOP-C02)
 
 | Attribute | Details |
 |---|---|
@@ -227,21 +253,65 @@ Specialty: Advanced Networking or Security
 
 ---
 
-### Path 4 — Data & AI/ML Focus
+### Path 4 — Data & AI/ML Focus (Recommended for AIML Students)
+
+```
+Cloud Practitioner (CLF-C02)          ← Start here — broad AWS knowledge
+        ↓
+AI Practitioner (AIF-C01)             ← After 2–3 months — AI/ML concepts on AWS
+        ↓
+ML Engineer – Associate (MLA-C01)     ← After 6+ months hands-on — deploy ML solutions
+        ↓
+Solutions Architect – Associate (SAA-C03)   ← Cloud architecture fundamentals
+        ↓
+Generative AI Developer – Professional (AIP-C01, 2026)
+```
+
+> **For AIML students:** Start with **Cloud Practitioner**, then go directly to **AI Practitioner**. Both are Foundational level, both cost $100, and together they give you a strong base in both cloud and AI on AWS.
+
+---
+
+### Path 5 — Cloud Generalist / Architect
 
 ```
 Cloud Practitioner (CLF-C02)
         ↓
 Solutions Architect – Associate (SAA-C03)
         ↓
-Data Engineer – Associate
+Solutions Architect – Professional (SAP-C03)
         ↓
-Machine Learning Engineer – Associate
-        ↓
-Generative AI Developer – Professional (2026)
+Specialty: Security or Advanced Networking
 ```
 
-> **Recommendation for beginners:** Always start with **Cloud Practitioner** to build vocabulary and context, then move to the Associate level cert aligned with your role.
+---
+
+### Path 6 — Developer / Backend Engineer
+
+```
+Cloud Practitioner (CLF-C02)  ← Optional but recommended
+        ↓
+Developer – Associate (DVA-C02)
+        ↓
+DevOps Engineer – Professional (DOP-C02)
+        ↓
+Specialty: Data Engineer or ML Engineer – Associate
+```
+
+---
+
+### Path 7 — Operations / Infrastructure / DevOps
+
+```
+Cloud Practitioner (CLF-C02)
+        ↓
+SysOps Administrator – Associate (SOA-C02)
+        ↓
+DevOps Engineer – Professional (DOP-C02)
+        ↓
+Specialty: Advanced Networking or Security
+```
+
+> **Recommendation for beginners:** Always start with **Cloud Practitioner** to build vocabulary and context, then move to the cert aligned with your role.
 
 ---
 
@@ -284,7 +354,23 @@ Generative AI Developer – Professional (2026)
 
 ## 4.6 Official AWS Learning Resources
 
-### 4.6.1 AWS Skill Builder (Official Training Platform)
+### 4.6.1 AWS Builder Center — Get a Free Exam Voucher
+
+**The fastest path to a free certification exam:** Sign up on AWS Builder Center, verify your student status, and earn community badges to unlock a free Foundational exam voucher ($100 value).
+
+| Step | Action | Reward |
+|---|---|---|
+| Sign up | [bit.ly/450cFtS](https://bit.ly/450cFtS) → create AWS Builder ID | Access to Builder Center |
+| Verify student | Complete SheerID verification | **1 year Premium Skill Builder ($449 value)** |
+| 7 badges | Publish articles, comment, stay active | $10 AWS credits |
+| 14 badges | Keep engaging | $20 more AWS credits |
+| **21 badges** | **Community milestone** | **Free Foundational exam voucher ($100)** |
+
+> AWS SBG DBIT also shares free exam voucher opportunities via their [WhatsApp Channel](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) and [LinkedIn](https://www.linkedin.com/company/aws-sbg-dbit/).
+
+---
+
+### 4.6.2 AWS Skill Builder (Official Training Platform)
 
 **URL:** [skillbuilder.aws](https://skillbuilder.aws)
 
@@ -301,7 +387,7 @@ AWS's official e-learning platform with hundreds of free and paid courses.
 
 ---
 
-### 4.6.2 AWS Documentation
+### 4.6.3 AWS Documentation
 
 **URL:** [docs.aws.amazon.com](https://docs.aws.amazon.com)
 
@@ -314,7 +400,7 @@ The definitive reference for every AWS service. Use it to:
 
 ---
 
-### 4.6.3 AWS Whitepapers
+### 4.6.4 AWS Whitepapers
 
 Key whitepapers to read for certifications:
 
@@ -435,11 +521,14 @@ If taking the exam from home:
 | Certification | Code | Level | Cost | Duration | Passing Score |
 |---|---|---|---|---|---|
 | Cloud Practitioner | CLF-C02 | Foundational | $100 | 90 min | 700/1000 |
+| **AI Practitioner** | **AIF-C01** | **Foundational** | **$100** | **90 min** | **700/1000** |
 | Solutions Architect – Associate | SAA-C03 | Associate | $150 | 130 min | 720/1000 |
 | Developer – Associate | DVA-C02 | Associate | $150 | 130 min | 720/1000 |
 | SysOps Administrator – Associate | SOA-C02 | Associate | $150 | 130+20 min | 720/1000 |
+| ML Engineer – Associate | MLA-C01 | Associate | $150 | 130 min | 720/1000 |
 | Solutions Architect – Professional | SAP-C02/C03 | Professional | $300 | 180 min | 750/1000 |
 | DevOps Engineer – Professional | DOP-C02 | Professional | $300 | 180 min | 750/1000 |
+| Generative AI Developer – Professional | AIP-C01 | Professional | $300 | 180 min | 750/1000 |
 
 ---
 

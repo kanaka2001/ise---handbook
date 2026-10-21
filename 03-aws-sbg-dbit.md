@@ -85,6 +85,14 @@ If using a direct IAM user:
 2. Enter your **IAM username and password**
 3. Complete MFA if required
 
+> The IAM Dashboard in your AWS Console shows your account-specific sign-in URL on the right side.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/iam-dashboard.png" width="720" alt="IAM Dashboard"/>
+  <br/>
+  <em>IAM Dashboard — shows security recommendations, IAM resources, and the account sign-in URL</em>
+</p>
+
 ---
 
 ### 3.5.3 AWS CLI Access in Sandbox
@@ -181,9 +189,30 @@ Daily Hygiene Checklist:
 
 **Quick steps:**
 1. Create an S3 bucket with a globally unique name
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-buckets-list-empty.png" width="720" alt="S3 Buckets list empty"/>
+  <br/>
+  <em>S3 console — empty bucket list is the correct starting state</em>
+</p>
+
 2. Enable **Static website hosting** in bucket properties
 3. Upload your `index.html` and assets
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-create-bucket-config.png" width="720" alt="S3 Create bucket configuration"/>
+  <br/>
+  <em>Create bucket — enter a globally unique name and select Mumbai (ap-south-1)</em>
+</p>
+
 4. Set bucket policy to allow public read access
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/s3-create-bucket-public-access.png" width="720" alt="S3 unblock public access"/>
+  <br/>
+  <em>Uncheck "Block all public access" — required for static website hosting</em>
+</p>
+
 5. Access via the S3 website endpoint URL
 
 ---
@@ -194,10 +223,32 @@ Daily Hygiene Checklist:
 **Estimated Cost:** Free Tier eligible (t2.micro)
 
 **Quick steps:**
-1. Launch a t2.micro Amazon Linux 2 instance
-2. Create or select a key pair
-3. Configure Security Group: allow SSH (port 22) from your IP
-4. Connect: `ssh -i your-key.pem ec2-user@<public-ip>`
+1. Launch a t2.micro Ubuntu instance
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-dashboard.png" width="720" alt="EC2 Dashboard"/>
+  <br/>
+  <em>EC2 Dashboard — click "Launch instance" to start</em>
+</p>
+
+2. Select Ubuntu AMI and t2.micro instance type
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-launch-ami-selection.png" width="720" alt="EC2 AMI selection"/>
+  <br/>
+  <em>Select Ubuntu Server 22.04 LTS and t2.micro (Free Tier eligible)</em>
+</p>
+
+3. Create or select a key pair — download the `.pem` file
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/ec2-launch-keypair-network.png" width="720" alt="EC2 key pair and network settings"/>
+  <br/>
+  <em>Create a key pair and allow SSH + HTTP traffic from the network settings</em>
+</p>
+
+4. Configure Security Group: allow SSH (port 22) from your IP and HTTP from the internet
+5. Connect: `ssh -i your-key.pem ubuntu@<public-ip>`
 
 ---
 
@@ -274,6 +325,43 @@ Daily Hygiene Checklist:
 | **Internal Slack/Teams Channel** | `#aws-sandbox` or `#dbit-cloud` (as configured by your team) |
 | **Admin/IT Support** | Raise a ticket for account issues, permission errors, or budget questions |
 | **AWS re:Post** | [repost.aws](https://repost.aws) — community Q&A |
+
+---
+
+## 3.13 AWS SBG DBIT — Community & Events
+
+**AWS Student Builder Group (SBG) at DBIT** is a student-driven cloud community at Don Bosco Institute of Technology, running in collaboration with the Department of AI & ML.
+
+**What the community does:**
+- Organises hands-on workshops and technical events (like the AWS Builders Lab)
+- Connects students with AWS learning resources and career opportunities
+- Creates peer learning through collaboration and community building
+- Helps students build real skills for internships and placements
+
+### Stay Connected
+
+| Platform | Link | Purpose |
+|---|---|---|
+| 📢 **WhatsApp Channel** | [Join Here](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) | Workshop updates and lab resources |
+| 📸 **Instagram** | [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) | Event highlights and tips |
+| 💼 **LinkedIn** | [AWS SBG DBIT](https://www.linkedin.com/company/aws-sbg-dbit/) | Professional community and career posts |
+| 🤝 **Meetup** | [AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/) | Upcoming events calendar |
+| 🌐 **Official Website** | [awsevents.dbit.edu.in](https://awsevents.dbit.edu.in/) | Events and registration |
+
+### Feedback — Help Improve Future Workshops
+
+After attending any workshop, please fill in both feedback forms:
+
+| Form | Link |
+|---|---|
+| **Official AWS Event Feedback** | [pulse.amazon/survey/UPCU4UQO](https://pulse.amazon/survey/UPCU4UQO?p=0) |
+| **AWS SBG–DBIT Internal Feedback** | [forms.gle/7PzATmjkJSRV6gm16](https://forms.gle/7PzATmjkJSRV6gm16) |
+
+### Join the Team
+
+Want to help organise events and build the cloud community at DBIT? Fill in the interest form and the team will reach out:
+
+**[forms.gle/TcuVTVdGg3TEJwU5A](https://forms.gle/TcuVTVdGg3TEJwU5A)**
 
 ---
 

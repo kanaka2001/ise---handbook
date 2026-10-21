@@ -6,6 +6,47 @@
 
 Cloud computing is the delivery of on-demand IT resources — compute, storage, networking, databases, and more — over the internet, with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you access technology services from a cloud provider like AWS.
 
+### Before Cloud Computing
+
+Before cloud computing, organizations had to own and manage their own physical infrastructure:
+
+```
+TRADITIONAL APPROACH
+┌────────────────────────────────────────────┐
+│  Buy servers  ──►  Configure hardware      │
+│       │                    │               │
+│  Hire IT team ──►  Maintain 24/7           │
+│       │                    │               │
+│  Estimate traffic ──►  Over-provision      │
+│       │                    │               │
+│       └────► Pay forever, use or not       │
+└────────────────────────────────────────────┘
+```
+
+**Real problems this caused:**
+
+| Challenge | What It Meant |
+|---|---|
+| High upfront cost | Small projects couldn't afford to start |
+| Hard to scale | More users meant buying more hardware |
+| Wasted resources | Servers sat idle most of the time |
+| Slow deployment | New infrastructure took days or weeks |
+
+### What Cloud Computing Changed
+
+```
+CLOUD APPROACH
+┌────────────────────────────────────────────┐
+│  Open browser  ──►  Launch server          │
+│       │               in 60 seconds        │
+│  Pay only while running                    │
+│       │                                    │
+│  Scale up in minutes when traffic spikes   │
+│       │                                    │
+│  Scale down and stop paying when done      │
+└────────────────────────────────────────────┘
+```
+
 ### Traditional IT vs. Cloud
 
 | Traditional IT | Cloud Computing |
@@ -16,9 +57,25 @@ Cloud computing is the delivery of on-demand IT resources — compute, storage, 
 | You manage hardware, OS, networking | Provider manages infrastructure |
 | Single physical location | Global deployment in minutes |
 
+## 2.2 A Brief History of AWS
+
+Understanding where cloud computing came from helps frame why AWS is built the way it is.
+
+```
+Before 2006 ──  Organizations manage own physical data centers
+    2006    ──  AWS launches publicly (S3 and EC2 are the first two services)
+    2010    ──  Amazon.com migrates entirely to AWS
+    2014    ──  AWS Lambda introduces serverless computing
+    2017    ──  SageMaker, Rekognition, and AI/ML services launch
+    2023    ──  Amazon Bedrock launches for Generative AI
+   Today   ──  200+ services, millions of developers worldwide
+```
+
+> AWS started because Amazon needed scalable infrastructure for its own e-commerce platform. In 2006 they opened it up to everyone — and the cloud industry was born.
+
 ---
 
-## 2.2 Cloud Deployment Models
+## 2.3 Cloud Deployment Models
 
 | Model | Description | Example |
 |---|---|---|
@@ -29,7 +86,7 @@ Cloud computing is the delivery of on-demand IT resources — compute, storage, 
 
 ---
 
-## 2.3 Cloud Service Models
+## 2.4 Cloud Service Models
 
 ### IaaS — Infrastructure as a Service
 - You manage: OS, middleware, runtime, data, applications
@@ -67,11 +124,11 @@ Responsibility Stack:
 
 ---
 
-## 2.4 AWS Global Infrastructure
+## 2.5 AWS Global Infrastructure
 
 AWS operates one of the world's largest global cloud infrastructures. Understanding its structure is essential for designing resilient, high-performance applications.
 
-### 2.4.1 Regions
+### 2.5.1 Regions
 
 A **Region** is a distinct geographic area (e.g., `us-east-1` = N. Virginia, `ap-south-1` = Mumbai). AWS currently has **36+ geographic regions** worldwide.
 
@@ -93,7 +150,7 @@ Common Regions:
 
 ---
 
-### 2.4.2 Availability Zones (AZs)
+### 2.5.2 Availability Zones (AZs)
 
 Each Region contains **multiple Availability Zones** (minimum 3). An AZ is one or more discrete data centers with redundant power, networking, and connectivity.
 
@@ -110,7 +167,7 @@ Region: ap-south-1 (Mumbai)
 
 ---
 
-### 2.4.3 Edge Locations
+### 2.5.3 Edge Locations
 
 Edge locations are endpoints used for **content caching and delivery** (via Amazon CloudFront). There are **400+ edge locations** globally — far more than Regions — bringing content closer to end users for lower latency.
 
@@ -121,7 +178,7 @@ Regions (36+) → Availability Zones (114+) → Edge Locations (400+)
 
 ---
 
-## 2.5 AWS Shared Responsibility Model
+## 2.6 AWS Shared Responsibility Model
 
 Security in AWS is a **shared responsibility** between AWS and you (the customer).
 
@@ -148,9 +205,33 @@ Security in AWS is a **shared responsibility** between AWS and you (the customer
 
 ---
 
-## 2.6 Core AWS Services
+## 2.7 Five Core AWS Services — Quick Look
 
-### 2.6.1 Compute
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sashee/aws-svg-icons/master/docs/Architecture-Service-Icons_07302021/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64.svg" width="48" alt="IAM"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/sashee/aws-svg-icons/master/docs/Architecture-Service-Icons_07302021/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg" width="48" alt="S3"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/sashee/aws-svg-icons/master/docs/Architecture-Service-Icons_07302021/Arch_Compute/64/Arch_Amazon-EC2_64.svg" width="48" alt="EC2"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://cdn.jsdelivr.net/npm/aws-icons@latest/icons/architecture-service/AmazonBedrock.svg" width="48" alt="Bedrock"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/sashee/aws-svg-icons/master/docs/Architecture-Service-Icons_07302021/Arch_Machine-Learning/64/Arch_Amazon-SageMaker_64.svg" width="48" alt="SageMaker"/>
+</p>
+
+| Service | What It Does |
+|---|---|
+| **IAM** | Controls who can access your AWS account and what they can do |
+| **S3** | Stores and serves files, images, and entire static websites |
+| **EC2** | Virtual computers you can launch in the cloud in seconds |
+| **Bedrock** | Access powerful AI foundation models for Generative AI applications |
+| **SageMaker** | Build, train, and deploy machine learning models — with or without code |
+
+---
+
+## 2.8 Core AWS Services
+
+### 2.8.1 Compute
 
 #### Amazon EC2 (Elastic Compute Cloud)
 Virtual servers in the cloud. You choose the OS, CPU, RAM, and storage.
@@ -187,7 +268,7 @@ Container orchestration services.
 
 ---
 
-### 2.6.2 Storage
+### 2.8.2 Storage
 
 #### Amazon S3 (Simple Storage Service)
 Object storage — store and retrieve any amount of data at any time.
@@ -223,7 +304,7 @@ Managed NFS (Network File System) that can be shared across multiple EC2 instanc
 
 ---
 
-### 2.6.3 Networking
+### 2.8.3 Networking
 
 #### Amazon VPC (Virtual Private Cloud)
 Your own isolated virtual network within AWS. Everything in AWS runs inside a VPC.
@@ -259,7 +340,7 @@ Content Delivery Network (CDN). Distributes content from 400+ edge locations glo
 
 ---
 
-### 2.6.4 Databases
+### 2.8.4 Databases
 
 #### Amazon RDS (Relational Database Service)
 Managed relational databases. Supports MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Amazon Aurora.
@@ -277,7 +358,7 @@ Managed in-memory caching (Redis or Memcached). Used to speed up application per
 
 ---
 
-### 2.6.5 Security & Identity
+### 2.8.5 Security & Identity
 
 #### AWS IAM (Identity and Access Management)
 Controls **who** (authentication) can do **what** (authorization) in AWS.
@@ -320,7 +401,7 @@ Controls **who** (authentication) can do **what** (authorization) in AWS.
 
 ---
 
-### 2.6.6 Monitoring & Management
+### 2.8.6 Monitoring & Management
 
 #### Amazon CloudWatch
 Monitoring and observability service.
@@ -337,7 +418,7 @@ Records and evaluates AWS resource configurations over time. Helps with complian
 
 ---
 
-## 2.7 AWS Well-Architected Framework
+## 2.9 AWS Well-Architected Framework
 
 AWS defines 6 pillars for building well-architected cloud systems:
 
@@ -354,7 +435,7 @@ AWS defines 6 pillars for building well-architected cloud systems:
 
 ---
 
-## 2.8 AWS Pricing Fundamentals
+## 2.10 AWS Pricing Fundamentals
 
 AWS follows a pay-as-you-go model with three main cost drivers:
 
@@ -371,7 +452,7 @@ AWS follows a pay-as-you-go model with three main cost drivers:
 
 ---
 
-## 2.9 Quick Reference: AWS Service Categories
+## 2.11 Quick Reference: AWS Service Categories
 
 | Category | Key Services |
 |---|---|

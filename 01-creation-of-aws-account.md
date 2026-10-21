@@ -1,5 +1,9 @@
 # Chapter 1: Creation of AWS Account
 
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" width="120" alt="AWS Logo"/>
+</p>
+
 ---
 
 ## 1.1 Overview
@@ -21,6 +25,15 @@ Before visiting [aws.amazon.com](https://aws.amazon.com), have the following rea
 | **Address** | Your billing/contact address |
 
 > **Tip:** Use a dedicated email for your AWS account, not a shared inbox. You'll receive billing alerts, security notifications, and account recovery emails here.
+
+### Pre-Creation Checklist
+
+- [ ] Laptop and charger ready
+- [ ] Stable internet connection available
+- [ ] Valid email address accessible
+- [ ] Credit or debit card available (for the $1 temporary verification hold)
+- [ ] Phone number ready for SMS/voice verification
+- [ ] Do **not** create the account on the day of a workshop — account activation can take up to 24 hours
 
 ---
 
@@ -166,7 +179,68 @@ Monitor your Free Tier usage at: **Billing Console → Free Tier**
 
 ---
 
-## 1.5 AWS Account Security Checklist
+## 1.5 AWS Builder Center — Sign Up After Account Creation
+
+Once your AWS account is active, signing up on **AWS Builder Center** is the next important step. It is the official community platform for AWS builders, and students unlock significant free rewards just for signing up.
+
+### What is AWS Builder Center?
+
+**[builder.aws.com](https://builder.aws.com)** gives you access to:
+
+| Section | What You Get |
+|---|---|
+| **Learn** | Structured learning paths, training courses, and tutorials |
+| **Build** | Hands-on labs and project guides |
+| **Community** | Connect with builders globally, publish articles, join discussions |
+| **Toolbox** | SDKs, developer tools, and resources |
+
+> No credit card needed. AWS Builder Center uses a separate **AWS Builder ID** — not your AWS Console account credentials.
+
+### Student Rewards — Up to $579 in Value
+
+| Step | Action | Reward |
+|---|---|---|
+| **Step 1** | Sign up + verify student status via SheerID | 1 year Premium AWS Skill Builder access (**$449 value, free**) |
+| **Step 2** | Complete your profile (photo + about section) | Profile badge |
+| **7 badges** | Publish articles, comment, stay active | **$10** in AWS credits |
+| **14 badges** | Continue engaging with the community | Additional **$20** in AWS credits |
+| **21 badges** | Keep building your community presence | AWS Foundational Certification exam voucher (**$100 value**) |
+
+**Sign up using this link:** [https://bit.ly/450cFtS](https://bit.ly/450cFtS)
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/qr-builder-center.png" width="200" alt="AWS Builder Center QR Code"/>
+  <br/>
+  <em>Scan this QR code with your phone camera to open the sign-up page directly</em>
+</p>
+
+### Also Explore: AWS Skill Builder
+
+Your Premium Skill Builder access (unlocked after student verification) includes:
+- Free digital training courses for every AWS service
+- Official certification exam prep courses and practice questions
+- Hands-on labs in a real AWS environment — no setup needed
+- Role-based learning paths (Cloud Architect, Developer, MLOps, and more)
+
+**Access at:** [skillbuilder.aws](https://skillbuilder.aws) — sign in with your AWS Builder ID
+
+---
+
+## 1.6 Stay Connected — AWS SBG DBIT Community
+
+AWS Student Builder Group (SBG) at DBIT is a student-driven cloud community running in collaboration with the Department of AI & ML. Join these channels to stay updated on workshops, resources, and certification events:
+
+| Platform | Link | Purpose |
+|---|---|---|
+| 📢 **WhatsApp Channel** | [Join Here](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) | Workshop updates and lab resources |
+| 📸 **Instagram** | [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) | Event highlights and tips |
+| 💼 **LinkedIn** | [AWS SBG DBIT](https://www.linkedin.com/company/aws-sbg-dbit/) | Professional community and career posts |
+| 🤝 **Meetup** | [AWS SBG at DBIT](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/) | Upcoming events calendar |
+| 🌐 **Official Website** | [awsevents.dbit.edu.in](https://awsevents.dbit.edu.in/) | Events and registration |
+
+---
+
+## 1.7 AWS Account Security Checklist
 
 Use this checklist every time you set up a new AWS account:
 
@@ -183,9 +257,15 @@ Use this checklist every time you set up a new AWS account:
 
 ---
 
-## 1.6 Understanding the AWS Console
+## 1.8 Understanding the AWS Console
 
 After signing in, you'll land on the **AWS Management Console**:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/kanaka2001/AIML-workshop/main/workshop-resources/images/aws-console-home.png" width="720" alt="AWS Management Console Home"/>
+  <br/>
+  <em>AWS Management Console — starting point for every lab and service</em>
+</p>
 
 | Element | Description |
 |---|---|
@@ -199,7 +279,7 @@ After signing in, you'll land on the **AWS Management Console**:
 
 ---
 
-## 1.7 Key Concepts Introduced in This Chapter
+## 1.9 Key Concepts Introduced in This Chapter
 
 | Term | Definition |
 |---|---|
