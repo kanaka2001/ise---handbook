@@ -10,7 +10,7 @@
 
 An AWS account is your entry point to Amazon Web Services. Everything you build on AWS — servers, storage, databases, AI models — lives inside your account. Creating it correctly from the start ensures you stay secure and avoid unexpected charges.
 
-> **For a detailed visual guide with screenshots, follow this document:**
+> **Full visual step-by-step guide with screenshots:**
 > [AWS Free Tier Account Creation Guide (Google Doc)](https://docs.google.com/document/d/1NL0-PokC71mwcqYCLNTaYR3wPRFTk5X9LuXGrsQhzSk/edit?usp=sharing)
 
 ---
@@ -30,8 +30,6 @@ An AWS account is your entry point to Amazon Web Services. Everything you build 
 ---
 
 ## 1.3 Step-by-Step: Creating Your AWS Account
-
-> For screenshots of every step, refer to the [detailed guide](https://docs.google.com/document/d/1NL0-PokC71mwcqYCLNTaYR3wPRFTk5X9LuXGrsQhzSk/edit?usp=sharing).
 
 ### Step 1 — Go to the AWS Sign-Up Page
 
@@ -147,7 +145,21 @@ From now on, use this IAM user — not root — for all console work.
 
 ---
 
-## 1.5 Account Setup Checklist
+## 1.5 Understanding the AWS Free Tier
+
+New accounts get 12 months of Free Tier access, plus some services that are always free:
+
+| Type | Description | Example |
+|---|---|---|
+| **12-Month Free** | Free for your first 12 months | 750 hrs/month EC2 t2.micro, 5 GB S3 |
+| **Always Free** | Never expires | 1 million Lambda requests/month |
+| **Trials** | Short-term free access | 90-day SageMaker trial |
+
+Monitor your usage: **Billing Console → Free Tier**
+
+---
+
+## 1.6 Account Setup Checklist
 
 - [ ] Email verified and account activated
 - [ ] MFA enabled on root user
